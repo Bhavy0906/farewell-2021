@@ -23,18 +23,22 @@ class Landing extends Component {
   componentDidMount() {
    
     let heightElem =
-      document.querySelector(".MainContainer").offsetHeight +
-      document.querySelector(".Headline").offsetHeight;
+    document.querySelector(".MainContainer").offsetHeight +
+    document.querySelector(".Headline").offsetHeight;
     console.log(heightElem);
     this.setState({ height: heightElem });
     console.log(this.state.height);
   
   }
   mouseEntered = (event) => {
-    this.setState({ hovering: 1, background: event.target.id });
+    this.setState({ hovering: 1, background: event.target.id});
+    document.getElementById('farewellName').style.background = 'white';
+    document.getElementById('farewellName').style.color = 'transparent';
+    document.getElementById('farewellName').style.clipPath = 'text';
   };
   mouseLeft = (event) => {
-    this.setState({ hovering: 0, background: null });
+    this.setState({ hovering: 0, background: null});
+    document.getElementById('farewellName').style.background =  'linear-gradient(to right, #a30d0d 50%, white 50%)';
   };
 
   render() {
@@ -73,11 +77,11 @@ class Landing extends Component {
          
           <span className="Projects">
             <h4>
-              Farewell
-              <span className="Headline" style={headLine}>
-                Farewell
+            <span  id = 'farewellName'>Farewell</span>
+            
+              <span className="Headline">
               </span>
-            </h4>
+              </h4>
           </span>
         </nav>
         <div className="Background1" style={backGround}></div>
